@@ -2,8 +2,10 @@
 // ====================================================================
 // В коде ошибка - $_FILES['files']['name'] результатом является массив!!!!!
 // =======================================================================
- echo 'Вывод результата загрузки файлов: ' . PHP_EOL;
- var_dump($_FILES['fileToUpload']);
+
+echo 'Вывод результата загрузки файлов: ' . PHP_EOL;
+// fileToUpload - поле name в форме загрузки файла
+var_dump($_FILES['fileToUpload']);
   echo 'Вывод ошибок: ' . PHP_EOL;
  var_dump($_FILES['fileToUpload']['error']);
  echo 'UPLOAD_ERR_OK ' . PHP_EOL;
@@ -52,7 +54,7 @@ var_dump($tmpName);
 // путь для сохранения загруженного файла
 // нескольких файлов нужно использовать цикл
 $savePath = 'uploads/' . $_FILES['fileToUpload']['name'][0];
-$savePath1 = 'uploads/' . $_FILES['fileToUpload']['name'][1];
+//$savePath1 = 'uploads/' . $_FILES['fileToUpload']['name'][1];
 
 // копируем файл 
 /*copy() - функция берет уже существующий файл и копирует его по новому адресу.
@@ -68,7 +70,7 @@ $savePath1 = 'uploads/' . $_FILES['fileToUpload']['name'][1];
 // ****************************
 // При загрузке нескольих файлов выдает ошибку
  copy($tmpName[0], $savePath);
- copy($tmpName[1], $savePath1);
+ //copy($tmpName[1], $savePath1);
 // echo 'Вывод загруженного файла: ' . PHP_EOL;
 // var_dump($savePath);
 // echo PHP_EOL;
@@ -78,7 +80,7 @@ $savePath1 = 'uploads/' . $_FILES['fileToUpload']['name'][1];
 # <?= - Это сокращенное от <?php echo $a; //? //>  
    ?>
 <p class="text-align: center;"><img src="<?= $savePath ?>"></p>
-<p class="text-align: center;"><img src="<?= $savePath1 ?>"></p>
+<p class="text-align: center;"><img src="<?//= $savePath1 ?>"></p>
 <?php
 // ---------------------------------------------------------------------
 ?>
